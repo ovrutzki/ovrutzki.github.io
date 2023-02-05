@@ -15,6 +15,20 @@ const user: string;
 const house: string;
 const winner: string;
 
+// add and subtract point + add to localStorage
+const userPoints: number = JSON.parse(localStorage.getItem("Points")) || 0;
+points.innerHTML = JSON.parse(localStorage.getItem("Points")) || 0;
+const addPoints = () => {
+  userPoints += 1;
+  localStorage.setItem("Points", JSON.stringify(userPoints));
+  points.innerHTML = JSON.parse(localStorage.getItem("Points"));
+};
+const subtractPoints = () => {
+  userPoints -= 1;
+  localStorage.setItem("Points", JSON.stringify(userPoints));
+  points.innerHTML = JSON.parse(localStorage.getItem("Points"));
+};
+
 // cerate a popup modal for rendering the rules
 rulesBtn?.addEventListener("click", (): void => {
   const modal = document.createElement("div") as HTMLDivElement | null;
@@ -115,20 +129,6 @@ const decision = (x, y) => {
   }
   declaration(winner);
 };
-// add and subtract point + add to localStorage
-const userPoints: number = JSON.parse(localStorage.getItem("Points")) || 0;
-points.innerHTML = JSON.parse(localStorage.getItem("Points")) || 0;
-const countPoints = (winner) => {
-  if (winner === "user") {
-    userPoints += 1;
-    localStorage.setItem("Points", JSON.stringify(userPoints));
-    points.innerHTML = JSON.parse(localStorage.getItem("Points"));
-  } else if (winner === "house") {
-    userPoints -= 1;
-    localStorage.setItem("Points", JSON.stringify(userPoints));
-    points.innerHTML = JSON.parse(localStorage.getItem("Points"));
-  }
-};
 
 // function the render the winner and add sum effects
 const declaration = (winner) => {
@@ -150,14 +150,15 @@ const declaration = (winner) => {
   if (winner === "user") {
     aura?.className = "user-won";
     leftSide?.appendChild(aura);
+    addPoints();
     title?.innerHTML = "YOU WIN";
   } else if (winner === "house") {
     aura?.className = "house-won";
     rightSide?.appendChild(aura);
+    subtractPoints();
     title?.innerHTML = "YOU LOSE";
   } else {
     title?.innerHTML = "DRAW";
   }
   middle?.append(title, rematchBtn);
-  countPoints();
 };
