@@ -14,7 +14,7 @@
     <div id="container">
         <!-- title and score counter -->
         <header>
-            <img src="./images/logo.svg" alt="rock paper scissors" >
+            <img src="./images/logo-bonus.svg" alt="rock paper scissors" >
             <div id="score">
                 <h4>score</h4>
                 <h1 id="points">0</h1>
@@ -22,23 +22,42 @@
         </header>
         <!-- main div -->
         <div id="main" class="main-div">
-            <img src="./images/bg-triangle.svg" alt="triangle">
+            <img src="./images/bg-pentagon.svg" alt="triangle">
             <!-- the three elements: paper, scissors and rock -->
-            <div class="icon paper" id="paper">
-                <div class="paper">
-                    <img class="paper" src="./images/icon-paper.svg" alt="paper" >
+            <div id="upper-corner">
+                    <div class="icon scissors" id="scissors">
+                        <div class="scissors">
+                            <img class="scissors" src="./images/icon-scissors.svg" alt="scissors">
+                        </div>
+                    </div>
+                <div id="mid">
+                    <div class="icon paper" id="paper">
+                        <div class="paper">
+                            <img class="paper" src="./images/icon-paper.svg" alt="paper" >
+                        </div>
+                    </div> 
+                    <div class="icon spock" id="spock">
+                        <div class="spock">
+                            <img class="spock" src="./images/icon-spock.svg" alt="spock" >
+                        </div>
+                    </div> 
                 </div>
             </div>
-            <div class="icon scissors" id="scissors">
-                <div class="scissors">
-                    <img class="scissors" src="./images/icon-scissors.svg" alt="scissors">
+            <div id="downer-corner">
+                <div class="icon rock" id="rock">
+                    <div class="rock">
+                        <img class="rock" src="./images/icon-rock.svg" alt="rock">
+                    </div>
+                </div>
+                <div class="icon lizard" id="lizard">
+                    <div class="lizard">
+                        <img class="lizard" src="./images/icon-lizard.svg" alt="lizard">
+                    </div>
                 </div>
             </div>
-            <div class="icon rock" id="rock">
-                <div class="rock">
-                    <img class="rock" src="./images/icon-rock.svg" alt="rock">
-                </div>
-            </div>
+            
+            
+            
         </div>
         <!-- rules button -->
         <button id="rules-btn">RULES</button>
