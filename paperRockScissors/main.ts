@@ -6,10 +6,14 @@ const rulesBtn = document.getElementById("rules-btn") as HTMLButtonElement;
 const paper = document.getElementById("paper") as HTMLDivElement;
 const rock = document.getElementById("rock") as HTMLDivElement;
 const scissors = document.getElementById("scissors") as HTMLDivElement;
+const spock = document.getElementById("spock") as HTMLDivElement;
+const lizard = document.getElementById("lizard") as HTMLDivElement;
 // duplicate for the three elements
 let p_paper = paper.cloneNode(true);
 let p_scissors = scissors.cloneNode(true);
 let p_rock = rock.cloneNode(true);
+let p_lizard = lizard.cloneNode(true);
+let p_spock = spock.cloneNode(true);
 // declaration for the decision function
 const user: string;
 const house: string;
@@ -45,7 +49,7 @@ rulesBtn?.addEventListener("click", (): void => {
   });
   const theRules = document.createElement("img") as HTMLImageElement;
   theRules.id = "the-rules";
-  theRules.src = "./images/image-rules.svg";
+  theRules.src = "./images/image-rules-bonus.svg";
   rules?.append(title, theRules, close);
   modal.appendChild(rules);
   document.body.appendChild(modal);
@@ -88,8 +92,11 @@ const battle = (choose): string => {
     case "rock":
       leftSide?.append(rock);
       break;
-
-    default:
+    case "spock":
+      leftSide?.append(spock);
+      break;
+    case "lizard":
+      leftSide?.append(lizard);
       break;
   }
   rightSide?.append(empty);
@@ -97,8 +104,8 @@ const battle = (choose): string => {
   container.replaceChild(battleDiv, mainDiv);
   // random house choice with the Math.random method.
   const houseChoose = () => {
-    const options: Array = [p_paper, p_scissors, p_rock];
-    const index = Math.floor(Math.random() * 3);
+    const options: Array = [p_paper, p_scissors, p_rock, p_lizard, p_spock];
+    const index = Math.floor(Math.random() * 5);
     rightSide.append(options[index]);
     house = options[index].id;
     empty?.className = "hidden";
@@ -111,21 +118,41 @@ const battle = (choose): string => {
 // function that decide how win after the user and the house picked
 // running on all the possible options
 //  after the decision the declaration function will start
-const decision = (x, y) => {
-  if (user === house) {
-    winner = "nobody";
-  } else if (user === "paper" && house === "scissors") {
-    winner = "house";
-  } else if (user === "paper" && house === "rock") {
-    winner = "user";
-  } else if (user === "scissors" && house === "rock") {
-    winner = "house";
-  } else if (user === "scissors" && house === "paper") {
-    winner = "user";
-  } else if (user === "rock" && house === "paper") {
-    winner = "house";
-  } else if (user === "rock" && house === "scissors") {
-    winner = "user";
+const decision = () => {
+  switch (true) {
+    case user === house:
+      winner = "nobody";
+      break;
+    case user === "paper" && (house === "scissors" || house === 'lizard'):
+      winner = "house";
+      break;
+    case user === "paper" && (house === "rock" || house === 'spock'):
+      winner = "user";
+      break;
+    case user === "scissors" && (house === "rock" || house === "spock"):
+      winner = "house";
+      break;
+    case user === "scissors" && (house === "paper" || house === 'lizard'):
+      winner = "user";
+      break;
+    case user === "rock" && (house === "paper" || house==='spock'):
+      winner = "house";
+      break;
+    case user === "rock" && (house === "scissors" || house === 'lizard'):
+      winner = "user";
+      break;
+    case user === "lizard" && (house === "spock" || house === 'paper'):
+      winner = "user";
+      break;
+    case user === "lizard" && (house === "scissors" || house === 'rock'):
+      winner = "house";
+      break;
+    case user === "spock" && (house === "scissors" || house === 'rock'):
+      winner = "user";
+      break;
+    case user === "spock" && (house === "paper" || house === 'lizard'):
+      winner = "house";
+      break;
   }
   declaration(winner);
 };

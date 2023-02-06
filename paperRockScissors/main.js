@@ -6,10 +6,14 @@ var rulesBtn = document.getElementById("rules-btn");
 var paper = document.getElementById("paper");
 var rock = document.getElementById("rock");
 var scissors = document.getElementById("scissors");
+var spock = document.getElementById("spock");
+var lizard = document.getElementById("lizard");
 // duplicate for the three elements
 var p_paper = paper.cloneNode(true);
 var p_scissors = scissors.cloneNode(true);
 var p_rock = rock.cloneNode(true);
+var p_lizard = lizard.cloneNode(true);
+var p_spock = spock.cloneNode(true);
 // declaration for the decision function
 var user;
 var house;
@@ -43,7 +47,7 @@ rulesBtn === null || rulesBtn === void 0 ? void 0 : rulesBtn.addEventListener("c
     });
     var theRules = document.createElement("img");
     theRules.id = "the-rules";
-    theRules.src = "./images/image-rules.svg";
+    theRules.src = "./images/image-rules-bonus.svg";
     rules === null || rules === void 0 ? void 0 : rules.append(title, theRules, close);
     modal.appendChild(rules);
     document.body.appendChild(modal);
@@ -86,7 +90,11 @@ var battle = function (choose) {
         case "rock":
             leftSide === null || leftSide === void 0 ? void 0 : leftSide.append(rock);
             break;
-        default:
+        case "spock":
+            leftSide === null || leftSide === void 0 ? void 0 : leftSide.append(spock);
+            break;
+        case "lizard":
+            leftSide === null || leftSide === void 0 ? void 0 : leftSide.append(lizard);
             break;
     }
     rightSide === null || rightSide === void 0 ? void 0 : rightSide.append(empty);
@@ -94,8 +102,8 @@ var battle = function (choose) {
     container.replaceChild(battleDiv, mainDiv);
     // random house choice with the Math.random method.
     var houseChoose = function () {
-        var options = [p_paper, p_scissors, p_rock];
-        var index = Math.floor(Math.random() * 3);
+        var options = [p_paper, p_scissors, p_rock, p_lizard, p_spock];
+        var index = Math.floor(Math.random() * 5);
         rightSide.append(options[index]);
         house = options[index].id;
         empty === null || empty === void 0 ? void 0 : empty.className = "hidden";
@@ -107,27 +115,41 @@ var battle = function (choose) {
 // function that decide how win after the user and the house picked
 // running on all the possible options
 //  after the decision the declaration function will start
-var decision = function (x, y) {
-    if (user === house) {
-        winner = "nobody";
-    }
-    else if (user === "paper" && house === "scissors") {
-        winner = "house";
-    }
-    else if (user === "paper" && house === "rock") {
-        winner = "user";
-    }
-    else if (user === "scissors" && house === "rock") {
-        winner = "house";
-    }
-    else if (user === "scissors" && house === "paper") {
-        winner = "user";
-    }
-    else if (user === "rock" && house === "paper") {
-        winner = "house";
-    }
-    else if (user === "rock" && house === "scissors") {
-        winner = "user";
+var decision = function () {
+    switch (true) {
+        case user === house:
+            winner = "nobody";
+            break;
+        case user === "paper" && (house === "scissors" || house === 'lizard'):
+            winner = "house";
+            break;
+        case user === "paper" && (house === "rock" || house === 'spock'):
+            winner = "user";
+            break;
+        case user === "scissors" && (house === "rock" || house === "spock"):
+            winner = "house";
+            break;
+        case user === "scissors" && (house === "paper" || house === 'lizard'):
+            winner = "user";
+            break;
+        case user === "rock" && (house === "paper" || house === 'spock'):
+            winner = "house";
+            break;
+        case user === "rock" && (house === "scissors" || house === 'lizard'):
+            winner = "user";
+            break;
+        case user === "lizard" && (house === "spock" || house === 'paper'):
+            winner = "user";
+            break;
+        case user === "lizard" && (house === "scissors" || house === 'rock'):
+            winner = "house";
+            break;
+        case user === "spock" && (house === "scissors" || house === 'rock'):
+            winner = "user";
+            break;
+        case user === "spock" && (house === "paper" || house === 'lizard'):
+            winner = "house";
+            break;
     }
     declaration(winner);
 };

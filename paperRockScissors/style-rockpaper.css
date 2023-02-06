@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 130px;
+  gap: 70px;
 }
 
 /* header elements */
@@ -56,17 +56,40 @@ header {
 /* main div setting */
 .main-div {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 313px;
+  align-items: center;
+  width: 500px;
   height: 100%;
   position: relative;
+  gap: 65px;
+}
+#upper-corner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+#mid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+#downer-corner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 }
 .main-div img {
   z-index: 0;
+  position: absolute;
+  scale: 1.3;
 }
 /* paper,rock, scissors settings */
 .icon {
-  position: absolute;
+  /* position: absolute; */
   z-index: 1;
   display: flex;
   height: 150px;
@@ -75,7 +98,7 @@ header {
   align-items: center;
   box-shadow: inset 0 -6px rgba(0, 0, 0, 0.2);
 }
-.icon:hover {
+.main-div .icon:hover {
   scale: 1.2;
   cursor: pointer;
 }
@@ -90,8 +113,6 @@ header {
   box-shadow: inset 0 6px rgba(0, 0, 0, 0.2);
 }
 #rock {
-  bottom: 0;
-
   border-radius: 50%;
   background-image: linear-gradient(
     to top,
@@ -100,9 +121,6 @@ header {
   );
 }
 #paper {
-  left: -60px;
-  top: -67px;
-
   border-radius: 50%;
   background-image: linear-gradient(
     to top,
@@ -111,13 +129,27 @@ header {
   );
 }
 #scissors {
-  right: -60px;
-  top: -67px;
   border-radius: 50%;
   background-image: linear-gradient(
     to top,
     hsl(39, 89%, 49%),
     hsl(40, 84%, 53%)
+  );
+}
+#spock {
+  border-radius: 50%;
+  background-image: linear-gradient(
+    to top,
+    hsl(189, 59%, 53%),
+    hsl(189, 58%, 57%)
+  );
+}
+#lizard {
+  border-radius: 50%;
+  background-image: linear-gradient(
+    to top,
+    hsl(261, 73%, 60%),
+    hsl(261, 72%, 63%)
   );
 }
 /* Rules modal settings */
@@ -146,7 +178,7 @@ header {
 #close {
   align-self: flex-end;
   position: relative;
-  top: -310px;
+  top: -365px;
 }
 #close:hover {
   cursor: pointer;
@@ -190,6 +222,10 @@ header {
   height: 360px;
   position: relative;
   gap: 40px;
+  margin-top: 180px;
+}
+.icon img {
+  scale: 1.1;
 }
 
 /* paper,rock, scissors settings for game */
@@ -214,6 +250,7 @@ header {
   width: fit-content;
   min-width: 200px;
   gap: 35px;
+  position: relative;
 }
 #left-side {
 }
@@ -266,10 +303,12 @@ header {
 }
 #aura {
   position: absolute;
-  height: 50vh;
-  width: 50vw;
+  height: 800px;
+  width: 800px;
+  top: -225px;
 }
 .user-won {
+  /* left: -190px; */
   z-index: 0;
   background-image: radial-gradient(
     circle,
@@ -294,6 +333,9 @@ header {
   );
 }
 @media (max-width: 800px) {
+  * {
+    z-index: 1;
+  }
   #container {
     margin-top: 20px;
     gap: 0;
@@ -305,16 +347,19 @@ header {
   .main-div {
     display: flex;
     justify-content: center;
-    height: 180px;
-    width: fit-content;
+    height: 100%;
+    width: 415px;
   }
   .main-div img {
     object-fit: contain;
+    scale: 1.1;
   }
+
   #battle-div {
     width: 80vw;
     gap: 0;
     padding-top: 40px;
+    margin-top: unset;
   }
   .icon {
     height: 100px;
@@ -326,6 +371,9 @@ header {
   .icon div {
     height: 75px;
     width: 75px;
+  }
+  .icon img {
+    scale: 0.85;
   }
   #scissors {
     right: 21px;
@@ -405,7 +453,7 @@ header {
   #middle {
     position: absolute;
     align-self: flex-end;
-    z-index: 0;
+    z-index: 2;
   }
   #battle-div h2 {
     color: white;
@@ -413,6 +461,35 @@ header {
     z-index: 1;
   }
   #aura {
-    display: none;
+    z-index: 0;
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    top: -128px;
+  }
+  .user-won {
+    left: -100px;
+    z-index: 0;
+    background-image: radial-gradient(
+      circle,
+      hsl(214, 47%, 23%) 27%,
+      hsla(214, 47%, 23%, 0.695) 27%,
+      hsla(214, 47%, 23%, 0.695) 37%,
+      hsla(214, 47%, 23%, 0.464) 37%,
+      hsla(214, 47%, 23%, 0.464) 47%,
+      transparent 47%
+    );
+  }
+  .house-won {
+    z-index: 0;
+    background-image: radial-gradient(
+      circle,
+      hsl(214, 47%, 23%) 27%,
+      hsla(214, 47%, 23%, 0.695) 27%,
+      hsla(214, 47%, 23%, 0.695) 37%,
+      hsla(214, 47%, 23%, 0.464) 37%,
+      hsla(214, 47%, 23%, 0.464) 47%,
+      transparent 47%
+    );
   }
 }

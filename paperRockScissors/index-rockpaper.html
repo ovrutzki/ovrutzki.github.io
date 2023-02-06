@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style-rockpaper.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <!-- title and score counter -->
+        <header>
+            <img src="./images/logo-bonus.svg" alt="rock paper scissors" >
+            <div id="score">
+                <h4>score</h4>
+                <h1 id="points">0</h1>
+            </div>
+        </header>
+        <!-- main div -->
+        <div id="main" class="main-div">
+            <img src="./images/bg-pentagon.svg" alt="triangle">
+            <!-- the three elements: paper, scissors and rock -->
+            <div id="upper-corner">
+                    <div class="icon scissors" id="scissors">
+                        <div class="scissors">
+                            <img class="scissors" src="./images/icon-scissors.svg" alt="scissors">
+                        </div>
+                    </div>
+                <div id="mid">
+                    <div class="icon paper" id="paper">
+                        <div class="paper">
+                            <img class="paper" src="./images/icon-paper.svg" alt="paper" >
+                        </div>
+                    </div> 
+                    <div class="icon spock" id="spock">
+                        <div class="spock">
+                            <img class="spock" src="./images/icon-spock.svg" alt="spock" >
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div id="downer-corner">
+                <div class="icon rock" id="rock">
+                    <div class="rock">
+                        <img class="rock" src="./images/icon-rock.svg" alt="rock">
+                    </div>
+                </div>
+                <div class="icon lizard" id="lizard">
+                    <div class="lizard">
+                        <img class="lizard" src="./images/icon-lizard.svg" alt="lizard">
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        <!-- rules button -->
+        <button id="rules-btn">RULES</button>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
