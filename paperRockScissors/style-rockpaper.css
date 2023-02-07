@@ -393,7 +393,7 @@ header img {
     top: -45px;
   }
   #rules-btn {
-    margin-top: -55px;
+    margin-top: 0px;
     position: unset;
     font-size: 21px;
     font-weight: 500;
@@ -460,7 +460,6 @@ header img {
     padding-right: 17px;
     text-align: center;
     font-size: 23px;
-    
   }
   #middle {
     position: absolute;
