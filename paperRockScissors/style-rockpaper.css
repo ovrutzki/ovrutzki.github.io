@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 70px;
+  gap: 10px;
 }
 
 /* header elements */
@@ -32,6 +32,9 @@ header {
   border: 2px hsl(217, 16%, 45%) solid;
   border-radius: 10px;
   width: 50vw;
+}
+header img {
+  scale: 0.9;
 }
 #score {
   padding-top: 12px;
@@ -59,7 +62,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 430px;
   height: 100%;
   position: relative;
   gap: 65px;
@@ -85,15 +88,15 @@ header {
 .main-div img {
   z-index: 0;
   position: absolute;
-  scale: 1.3;
+  scale: 1.1;
 }
 /* paper,rock, scissors settings */
 .icon {
   /* position: absolute; */
   z-index: 1;
   display: flex;
-  height: 150px;
-  width: 150px;
+  height: 110px;
+  width: 110px;
   justify-content: center;
   align-items: center;
   box-shadow: inset 0 -6px rgba(0, 0, 0, 0.2);
@@ -106,8 +109,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px;
-  width: 120px;
+  height: 85px;
+  width: 85px;
   border-radius: 50%;
   background-color: white;
   box-shadow: inset 0 6px rgba(0, 0, 0, 0.2);
@@ -222,7 +225,7 @@ header {
   height: 360px;
   position: relative;
   gap: 40px;
-  margin-top: 180px;
+  margin-top: 130px;
 }
 .icon img {
   scale: 1.1;
@@ -341,25 +344,31 @@ header {
     gap: 0;
   }
   header {
+    margin-top: 5px;
     width: 80vw;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  header img {
+    scale: 0.85;
   }
   .main-div {
     display: flex;
     justify-content: center;
     height: 100%;
-    width: 415px;
+    width: 330px;
+    margin-bottom: 75px;
   }
   .main-div img {
     object-fit: contain;
-    scale: 1.1;
+    scale: 0.82;
   }
 
   #battle-div {
     width: 80vw;
     gap: 0;
     padding-top: 40px;
-    margin-top: unset;
+    margin-top: 120px;
   }
   .icon {
     height: 100px;
@@ -384,7 +393,7 @@ header {
     top: -45px;
   }
   #rules-btn {
-    margin-top: 12vh;
+    margin-top: -55px;
     position: unset;
     font-size: 21px;
     font-weight: 500;
@@ -410,7 +419,7 @@ header {
     width: 100%;
     height: 100%;
     overflow: auto;
-    gap: 15vh;
+    gap: 6vh;
   }
   #close {
     position: unset;
@@ -449,6 +458,9 @@ header {
   }
   #right-side h2 {
     padding-right: 17px;
+    text-align: center;
+    font-size: 23px;
+    
   }
   #middle {
     position: absolute;
